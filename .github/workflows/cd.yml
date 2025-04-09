@@ -46,11 +46,7 @@ jobs:
         uses: appleboy/scp-action@v0.1.3
         with:
           host: ${{ secrets.SSH_KNOWN_HOSTS }}
-          username: root
+          username: "root"
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: |
-            .next
-            public
-            package.json
-            next.config.js
+          source: ".next,public,package.json,next.config.js"
           target: /www/wwwroot/cat-home-page
