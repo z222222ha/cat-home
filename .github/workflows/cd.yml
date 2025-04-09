@@ -53,14 +53,12 @@ jobs:
           TARGET: "/www/wwwroot/cat-home-page"
 
       - name: SSH to Server
-        uses: appleboy/ssh-action@v1.0.0
+        uses: appleboy/ssh-action@
         with:
           host: ${{ secrets.SSH_KNOWN_HOSTS }}
           username: "root"
           port: 22
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /www/wwwroot/cat-home-page
-            pnpm install
-            pm2 reload ecosystem.config.js --env production
-            echo "Deployment completed successfully"
+            set -e
+            bash -c "cd /www/wwwroot/cat-home-page && pnpm install && pm2 start ecosystem.config.js"
