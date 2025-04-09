@@ -48,7 +48,7 @@ jobs:
           # SSH_PRIVATE_KEY为准备工作步骤三中生成密钥对里的私钥
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           # 指定当前目录中要上传的内容
-          SOURCE: ".next/"
+          SOURCE: "/.next"
           # 指定上传到部署机器的哪个目录下
           TARGET: "/www/wwwroot/cat-home-page"
           # 上传前指令，此处用于清空TARGET下的文件
