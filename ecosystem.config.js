@@ -3,9 +3,9 @@ module.exports = {
     {
       name: "cat-home-page",
       script: "npm",
-      args: "start",
+      args: "run start",
       autorestart: true,
-      watch: false,
+      watch: true,
       env: {
         NODE_ENV: "production",
       },

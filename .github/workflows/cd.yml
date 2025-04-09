@@ -59,6 +59,4 @@ jobs:
           username: "root"
           port: 22
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            set -e
-            bash -c "cd /www/wwwroot/cat-home-page && pnpm install && pm2 start ecosystem.config.js"
+          script: whoami
