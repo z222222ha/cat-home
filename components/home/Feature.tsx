@@ -19,7 +19,7 @@ const Feature = ({
     >
       <h2 className="text-center text-white">
         <RoughNotation type="highlight" show={true} color="#2563EB">
-          {locale.title}
+          {locale.title}1111
         </RoughNotation>
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">

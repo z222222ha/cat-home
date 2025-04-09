@@ -11,10 +11,11 @@ import { CgClose } from "react-icons/cg";
 import { ThemedButton } from "../ThemedButton";
 
 const links = [
-  { label: "Features", href: "#Features" },
-  { label: "Pricing", href: "#Pricing" },
-  { label: "Testimonials", href: "#Testimonials" },
-  { label: "FAQ", href: "#FAQ" },
+  { label: "Cats", href: "#Cats" },
+  // { label: "Features", href: "#Features" },
+  // { label: "Pricing", href: "#Pricing" },
+  // { label: "Testimonials", href: "#Testimonials" },
+  // { label: "FAQ", href: "#FAQ" },
 ];
 
 const Header = () => {
@@ -35,7 +36,7 @@ const Header = () => {
           >
             <Image
               alt="Logo"
-              src="/logo.svg"
+              src="/cat.png"
               className="w-8 h-8"
               width={32}
               height={32}
