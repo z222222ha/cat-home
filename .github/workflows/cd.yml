@@ -53,10 +53,13 @@ jobs:
           TARGET: "/www/wwwroot/cat-home-page"
 
       - name: SSH to Server
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.SSH_KNOWN_HOSTS }}
-          username: "root"
-          port: 22
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: whoami
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.SSH_KNOWN_HOSTS }} >> ~/.ssh/known_hosts
+          ssh -o StrictHostKeyChecking=no root@${{ secrets.SSH_KNOWN_HOSTS }} << 'EOF'
+            cd /www/wwwroot/cat-home-page
+            pnpm install     
+            pm2 start ecosystem.config.js
+          EOF
