@@ -42,12 +42,25 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Deploy to Server
+      - name: Deploy files to Server
         uses: easingthemes/ssh-deploy@main
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           REMOTE_HOST: ${{ secrets.SSH_KNOWN_HOSTS }}
           REMOTE_USER: "root"
           ARGS: "-rlgoDzvc -i --delete"
-          SOURCE: ".next public package.json"
+          SOURCE: ".next public package.json ecosystem.config.js"
           TARGET: "/www/wwwroot/cat-home-page"
+
+      - name: SSH to Server
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SSH_KNOWN_HOSTS }}
+          username: "root"
+          port: 22
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /www/wwwroot/cat-home-page
+            pnpm install
+            pm2 reload ecosystem.config.js --env production
+            echo "Deployment completed successfully"
