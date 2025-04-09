@@ -53,7 +53,7 @@ jobs:
           TARGET: "/www/wwwroot/cat-home-page"
 
       - name: SSH to Server
-        uses: appleboy/ssh-action@
+        uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.SSH_KNOWN_HOSTS }}
           username: "root"
