@@ -43,14 +43,14 @@ jobs:
         run: pnpm build
 
       - name: Deploy files to Server
-        uses: easingthemes/ssh-deploy@main
+        uses: appleboy/scp-action@v0.1.7
         with:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          REMOTE_HOST: ${{ secrets.SSH_KNOWN_HOSTS }}
-          REMOTE_USER: "root"
-          ARGS: "-rlgoDzvc -i --delete"
-          SOURCE: ".next public package.json ecosystem.config.js"
-          TARGET: "/www/wwwroot/cat-home-page"
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          host: ${{ secrets.SSH_KNOWN_HOSTS }}
+          username: "root"
+          port: 22
+          target: "/www/wwwroot/cat-home-page"
+          source: ".next,public,package.json,ecosystem.config.js"
 
       - name: SSH to Server
         run: |
