@@ -21,7 +21,7 @@ const Hero = ({ locale, langName }: { locale: any; langName: string }) => {
       >
         <section
           lang={langName}
-          className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-10 pt-4 md:pt-10 text-center"
+          className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 md:pt-10 text-center"
         >
           <h1>
             {locale.title1} <LineText>{locale.title2}</LineText> {locale.title3}

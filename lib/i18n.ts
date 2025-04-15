@@ -16,8 +16,8 @@ export const locales = [
 ];
 export const localeNames: any = {
   en: "🇺🇸 English",
-  zh: "🇨🇳 中文"
-}
+  zh: "🇨🇳 中文",
+};
 export const defaultLocale = "zh";
 
 // If you wish to automatically redirect users to a URL that matches their browser's language setting,
@@ -31,10 +31,6 @@ export function getLocale(headers: any): string {
 const dictionaries: any = {
   en: () => import("@/locales/en.json").then((module) => module.default),
   zh: () => import("@/locales/zh.json").then((module) => module.default),
-  ja: () => import("@/locales/ja.json").then((module) => module.default),
-  ar: () => import("@/locales/ar.json").then((module) => module.default),
-  es: () => import("@/locales/es.json").then((module) => module.default),
-  ru: () => import("@/locales/ru.json").then((module) => module.default),
 };
 
 export const getDictionary = async (locale: string) => {
@@ -48,4 +44,3 @@ export const getDictionary = async (locale: string) => {
 
   return dictionaries[locale]();
 };
-
