@@ -15,15 +15,18 @@ import Marquee from "react-fast-marquee";
 const ScrollingCats = ({ id }: { id: string }) => {
   const { theme } = useTheme();
   return (
-    <section id={id} className="w-full px-0 lg:pt-16">
+    <section
+      id={id}
+      className="w-full px-0 pt-8 md:px-6 md:pt-10 lg:px-0 lg:pt-16"
+    >
       {/* <h2 className="text-center mb-10">Cats</h2> */}
 
       <Marquee
         direction="left"
         autoFill
-        gradient
-        gradientColor="rgb(248,251,253)"
-        gradientWidth={200}
+        // gradient
+        // gradientColor="rgb(248,251,253)"
+        // gradientWidth={100}
       >
         {CATS.map((item, index) => (
           <div className="mx-6 text-gray-500" key={index}>
