@@ -21,6 +21,9 @@ const Footer = () => {
             {authors[0].name}
           </Link>{" "}
           <div>All rights reserved.</div>
+          <a href="https://beian.miit.gov.cn/" target="_blank">
+            鄂ICP备2025098416号-1
+          </a>
         </div>
       </div>
     </footer>
