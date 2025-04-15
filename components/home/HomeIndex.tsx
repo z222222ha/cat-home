@@ -1,6 +1,7 @@
 import Hero from "@/components/home/Hero";
 import IconCloudDemo from "@/components/home/IconCloud";
 import ScrollingCats from "@/components/home/ScrollingCats";
+import ScrollTest from "@/components/home/ScrollTest";
 import { defaultLocale, getDictionary } from "@/lib/i18n";
 
 export default async function HomeIndex({ lang }: { lang: string }) {
@@ -14,6 +15,8 @@ export default async function HomeIndex({ lang }: { lang: string }) {
       {/* <SocialProof locale={dict.SocialProof} /> */}
       <IconCloudDemo locale={dict.SocialProof} />
       <ScrollingCats id="Cats" />
+      {/* <Phone /> */}
+      <ScrollTest />
       {/* display technology stack, partners, project honors, etc. */}
       {/* <ScrollingLogos /> */}
 
