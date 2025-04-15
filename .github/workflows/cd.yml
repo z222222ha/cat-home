@@ -43,24 +43,29 @@ jobs:
         run: pnpm build
 
       - name: Deploy files to Server
-        uses: appleboy/scp-action@v0.1.7
+        uses: easingthemes/ssh-deploy@main
         with:
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          host: ${{ secrets.SSH_KNOWN_HOSTS }}
-          username: "root"
-          port: 22
-          target: "/www/wwwroot/cat-home-page"
-          source: ".next,public,package.json,ecosystem.config.js"
-
-      - name: SSH to Server
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.SSH_KNOWN_HOSTS }} >> ~/.ssh/known_hosts
-          ssh -o StrictHostKeyChecking=no root@${{ secrets.SSH_KNOWN_HOSTS }} << 'EOF'
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.SSH_KNOWN_HOSTS }}
+          REMOTE_USER: "root"
+          ARGS: "-rlgoDzvc -i"
+          SOURCE: ".next public package.json ecosystem.config.js"
+          TARGET: "/www/wwwroot/cat-home-page"
+          SCRIPT_AFTER: |
             set -e
             cd /www/wwwroot/cat-home-page
             pnpm install
             pm2 startOrRestart ecosystem.config.js
-          EOF
+
+      # - name: SSH to Server
+      #   run: |
+      #     mkdir -p ~/.ssh
+      #     echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+      #     chmod 600 ~/.ssh/id_rsa
+      #     ssh-keyscan -H ${{ secrets.SSH_KNOWN_HOSTS }} >> ~/.ssh/known_hosts
+      #     ssh -o StrictHostKeyChecking=no root@${{ secrets.SSH_KNOWN_HOSTS }} << 'EOF'
+      #       set -e
+      #       cd /www/wwwroot/cat-home-page
+      #       pnpm install
+      #       pm2 startOrRestart ecosystem.config.js
+      #     EOF

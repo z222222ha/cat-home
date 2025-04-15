@@ -41,6 +41,7 @@ const ScrollingCats = ({ id }: { id: string }) => {
                   alt={item.name}
                   width={300}
                   height={400}
+                  priority={true}
                   style={{
                     objectFit: "cover", // cover, contain, none
                     objectPosition: "center", // left, center, right, top, center, bottom
