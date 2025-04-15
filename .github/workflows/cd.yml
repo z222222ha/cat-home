@@ -48,24 +48,19 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           REMOTE_HOST: ${{ secrets.SSH_KNOWN_HOSTS }}
           REMOTE_USER: "root"
-          ARGS: "-rlgoDzvc -i"
+          ARGS: "-rlgoDzvc -i --delete"
           SOURCE: ".next public package.json ecosystem.config.js"
           TARGET: "/www/wwwroot/cat-home-page"
-          SCRIPT_AFTER: |
+
+      - name: SSH to Server
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.SSH_KNOWN_HOSTS }} >> ~/.ssh/known_hosts
+          ssh -o StrictHostKeyChecking=no root@${{ secrets.SSH_KNOWN_HOSTS }} << 'EOF'
             set -e
             cd /www/wwwroot/cat-home-page
             pnpm install
             pm2 startOrRestart ecosystem.config.js
-
-      # - name: SSH to Server
-      #   run: |
-      #     mkdir -p ~/.ssh
-      #     echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-      #     chmod 600 ~/.ssh/id_rsa
-      #     ssh-keyscan -H ${{ secrets.SSH_KNOWN_HOSTS }} >> ~/.ssh/known_hosts
-      #     ssh -o StrictHostKeyChecking=no root@${{ secrets.SSH_KNOWN_HOSTS }} << 'EOF'
-      #       set -e
-      #       cd /www/wwwroot/cat-home-page
-      #       pnpm install
-      #       pm2 startOrRestart ecosystem.config.js
-      #     EOF
+          EOF
