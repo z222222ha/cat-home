@@ -42,7 +42,7 @@ export default function HorizontalFanCards() {
     <div
       style={{
         height: "100vh",
-        width: "100vw",
+        width: "100%",
         marginTop: "40vh",
       }}
     >
@@ -55,13 +55,19 @@ export default function HorizontalFanCards() {
         }}
       >
         {/* 卡片直接 absolute + motion 控制 x */}
-        <motion.div style={{ ...cardStyle, x: leftX, scale: centerScale }}>
+        <motion.div
+          style={{ ...cardStyle, x: leftX, scale: centerScale, zIndex: 1 }}
+        >
           <Iphone15Pro className="size-full" src="/images/cats/001.png" />
         </motion.div>
-        <motion.div style={{ ...cardStyle, x: 0, scale: centerScale }}>
+        <motion.div
+          style={{ ...cardStyle, x: 0, scale: centerScale, zIndex: 3 }}
+        >
           <Iphone15Pro className="size-full" src="/images/cats/001.png" />
         </motion.div>
-        <motion.div style={{ ...cardStyle, x: rightX, scale: centerScale }}>
+        <motion.div
+          style={{ ...cardStyle, x: rightX, scale: centerScale, zIndex: 2 }}
+        >
           <Iphone15Pro className="size-full" src="/images/cats/001.png" />
         </motion.div>
       </div>
