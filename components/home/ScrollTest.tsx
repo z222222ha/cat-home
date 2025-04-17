@@ -20,6 +20,7 @@ export default function HorizontalFanCards() {
     alignItems: "center",
     fontSize: 18,
     fontWeight: "bold",
+    top: "10vh",
   };
 
   // 左卡片：向左移动
@@ -38,39 +39,49 @@ export default function HorizontalFanCards() {
     [0, cardStyle.width + 80]
   );
 
+  // 文字向上滑出
+  const textY = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  const textOpacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
   return (
-    <div
+    <section
+      ref={containerRef}
       style={{
-        height: "100vh",
+        position: "relative",
+        display: "flex",
+        justifyContent: "center",
+        height: "80vh",
         width: "100%",
-        marginTop: "40vh",
+        marginTop: "30vh",
       }}
     >
-      <div
-        ref={containerRef}
+      <motion.div
         style={{
-          position: "relative",
-          display: "flex",
-          justifyContent: "center",
+          y: textY,
+          opacity: textOpacity,
+          textAlign: "center",
+          marginBottom: 40,
         }}
       >
-        {/* 卡片直接 absolute + motion 控制 x */}
-        <motion.div
-          style={{ ...cardStyle, x: leftX, scale: centerScale, zIndex: 1 }}
-        >
-          <Iphone15Pro className="size-full" src="/images/cats/001.png" />
-        </motion.div>
-        <motion.div
-          style={{ ...cardStyle, x: 0, scale: centerScale, zIndex: 3 }}
-        >
-          <Iphone15Pro className="size-full" src="/images/cats/001.png" />
-        </motion.div>
-        <motion.div
-          style={{ ...cardStyle, x: rightX, scale: centerScale, zIndex: 2 }}
-        >
-          <Iphone15Pro className="size-full" src="/images/cats/001.png" />
-        </motion.div>
-      </div>
-    </div>
+        <h1 style={{ fontSize: 32, fontWeight: "bold" }}>
+          界面 <span style={{ color: "#2c84ff" }}>轻盈焕新</span>
+        </h1>
+        <p style={{ fontSize: 20, color: "#555" }}>简洁纯粹 · 氛围轻松</p>
+      </motion.div>
+      {/* 卡片直接 absolute + motion 控制 x */}
+      <motion.div
+        style={{ ...cardStyle, x: leftX, scale: centerScale, zIndex: 1 }}
+      >
+        <Iphone15Pro className="size-full" src="/images/cats/001.png" />
+      </motion.div>
+      <motion.div style={{ ...cardStyle, x: 0, scale: centerScale, zIndex: 3 }}>
+        <Iphone15Pro className="size-full" src="/images/cats/001.png" />
+      </motion.div>
+      <motion.div
+        style={{ ...cardStyle, x: rightX, scale: centerScale, zIndex: 2 }}
+      >
+        <Iphone15Pro className="size-full" src="/images/cats/001.png" />
+      </motion.div>
+    </section>
   );
 }
