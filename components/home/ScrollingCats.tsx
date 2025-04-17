@@ -51,9 +51,7 @@ const ScrollingCats = ({ id }: { id: string }) => {
                     height: "400px",
                     // filter: "grayscale(100%)", // grayscale(100%)
                   }}
-                  className={`${
-                    theme === "dark" ? "filter dark:invert grayscale" : ""
-                  } hover:filter-none transition-all duration-300 cursor-pointer text-gray-500`}
+                  className={`hover:filter-none transition-all duration-300 cursor-pointer text-gray-500`}
                 />
               </CardContent>
               <CardFooter>

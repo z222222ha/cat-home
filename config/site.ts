@@ -1,6 +1,5 @@
 import { SiteConfig } from "@/types/siteConfig";
-import { BsGithub, BsTwitterX, BsWechat } from "react-icons/bs";
-import { MdEmail } from "react-icons/md";
+import { BsWechat } from "react-icons/bs";
 import { SiBuymeacoffee } from "react-icons/si";
 
 const OPEN_SOURCE_URL = "https://github.com/weijunext/landing-page-boilerplate";
@@ -31,22 +30,8 @@ const baseSiteConfig = {
     shortcut: "/favicon-16x16.png",
     apple: "/logo.png",
   },
-  headerLinks: [
-    { name: "repo", href: OPEN_SOURCE_URL, icon: BsGithub },
-    {
-      name: "twitter",
-      href: "",
-      icon: BsTwitterX,
-    },
-    {
-      name: "buyMeCoffee",
-      href: "",
-      icon: SiBuymeacoffee,
-    },
-  ],
+  headerLinks: [],
   footerLinks: [
-    { name: "email", href: "mailto:weijunext@gmail.com", icon: MdEmail },
-    { name: "github", href: "", icon: BsGithub },
     {
       name: "buyMeCoffee",
       href: "",
