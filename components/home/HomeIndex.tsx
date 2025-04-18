@@ -18,7 +18,7 @@ export default async function HomeIndex({ lang }: { lang: string }) {
       <ScrollingCats id="Cats" />
       {/* <Phone /> */}
 
-      <AllPhoneCards />
+      <AllPhoneCards locale={dict.AllPhoneCards} />
 
       <ScrollTest />
       {/* display technology stack, partners, project honors, etc. */}

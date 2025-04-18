@@ -1,12 +1,5 @@
 "use client";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CATS } from "@/config/cats";
 import { useTheme } from "next-themes";
 import Image from "next/image";
@@ -30,33 +23,29 @@ const ScrollingCats = ({ id }: { id: string }) => {
       >
         {CATS.map((item, index) => (
           <div className="mx-6 text-gray-500" key={index}>
-            <Card className="w-300 h-400">
+            <Card>
               <CardHeader>
                 <CardTitle>{item.name}</CardTitle>
-                <CardDescription>des</CardDescription>
               </CardHeader>
               <CardContent>
                 <Image
                   src={item.image}
                   alt={item.name}
-                  width={300}
-                  height={400}
+                  width={210}
+                  height={280}
                   priority={true}
                   style={{
                     objectFit: "cover", // cover, contain, none
                     objectPosition: "center", // left, center, right, top, center, bottom
                     borderRadius: "8px", // 0, 50%, 100%
                     boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)", // 0 0 10px rgba(0, 0, 0, 0.1)
-                    width: "300px",
-                    height: "400px",
+                    width: "210px",
+                    height: "280px",
                     // filter: "grayscale(100%)", // grayscale(100%)
                   }}
                   className={`hover:filter-none transition-all duration-300 cursor-pointer text-gray-500`}
                 />
               </CardContent>
-              <CardFooter>
-                <p>Card Footer</p>
-              </CardFooter>
             </Card>
           </div>
         ))}
