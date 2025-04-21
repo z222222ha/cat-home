@@ -1,8 +1,8 @@
 import AllPhoneCards from "@/components/home/AllPhoneCards";
 import Hero from "@/components/home/Hero";
 import IconCloudDemo from "@/components/home/IconCloud";
+import ScrollCard1 from "@/components/home/ScrollCard1";
 import ScrollingCats from "@/components/home/ScrollingCats";
-import ScrollTest from "@/components/home/ScrollTest";
 import { defaultLocale, getDictionary } from "@/lib/i18n";
 
 export default async function HomeIndex({ lang }: { lang: string }) {
@@ -20,7 +20,7 @@ export default async function HomeIndex({ lang }: { lang: string }) {
 
       <AllPhoneCards locale={dict.AllPhoneCards} />
 
-      <ScrollTest />
+      <ScrollCard1 locale={dict.ScrollCard1} />
       {/* display technology stack, partners, project honors, etc. */}
       {/* <ScrollingLogos /> */}
 

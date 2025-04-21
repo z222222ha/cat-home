@@ -3,7 +3,7 @@ import Iphone15Pro from "@/components/magicui/iphone-15-pro";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
-export default function HorizontalFanCards() {
+export default function HorizontalFanCards({ locale }: { locale: any }) {
   const containerRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -63,10 +63,13 @@ export default function HorizontalFanCards() {
           marginBottom: 40,
         }}
       >
-        <h1 style={{ fontSize: 32, fontWeight: "bold" }}>
-          界面 <span style={{ color: "#2c84ff" }}>轻盈焕新</span>
-        </h1>
-        <p style={{ fontSize: 20, color: "#555" }}>简洁纯粹 · 氛围轻松</p>
+        <h2>
+          {locale.title1}
+          <span style={{ color: "#2c84ff" }}>{locale.title2}</span>
+        </h2>
+        <p style={{ fontSize: 20, color: "#555", fontWeight: "bold" }}>
+          {locale.description}
+        </p>
       </motion.div>
       {/* 卡片直接 absolute + motion 控制 x */}
       <motion.div

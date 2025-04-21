@@ -69,14 +69,14 @@ export default function AllPhoneCards({ locale }: { locale: any }) {
             alignItems: "center",
           }}
         >
-          <h1 style={{ fontSize: 32, fontWeight: "bold" }}>
+          <h2>
             {locale.title1}
             <span style={{ color: "#2c84ff" }}>{locale.title2}</span>
-          </h1>
-          <h1 style={{ fontSize: 32, fontWeight: "bold" }}>
+          </h2>
+          <h2>
             {locale.title3}
             <span style={{ color: "#2c84ff" }}>{locale.title4}</span>
-          </h1>
+          </h2>
         </motion.div>
 
         <ConfettiFireworks ref={confettiRef} />
@@ -129,10 +129,10 @@ export default function AllPhoneCards({ locale }: { locale: any }) {
             marginBottom: 40,
           }}
         >
-          <h1 ref={test2Ref} style={{ fontSize: 32, fontWeight: "bold" }}>
+          <h2 ref={test2Ref}>
             {locale.title5}
             <span style={{ color: "#2c84ff" }}>{locale.title6}</span>
-          </h1>
+          </h2>
           <p style={{ fontSize: 20, color: "#555", fontWeight: "bold" }}>
             {locale.description2}
           </p>
