@@ -1,4 +1,5 @@
 "use client";
+import ConfettiFireworks from "@/components/home/ConfettiFireworks";
 import { type ConfettiRef } from "@/components/magicui/confetti";
 import Iphone15Pro from "@/components/magicui/iphone-15-pro";
 import RainbowButton from "@/components/RainbowButton";
@@ -50,11 +51,12 @@ export default function AllPhoneCards({ locale }: { locale: any }) {
 
   useEffect(() => {
     console.log("text2IsInView", text2IsInView);
-    text2IsInView && confettiRef.current?.fire({});
+    text2IsInView && confettiRef.current?.fire();
   }, [text2IsInView]);
 
   return (
     <section className="mt-20 relative">
+      {/* title */}
       <section className="flex flex-col items-center justify-center gap-4 mb-20">
         <motion.div
           ref={textRef}
@@ -76,6 +78,10 @@ export default function AllPhoneCards({ locale }: { locale: any }) {
             <span style={{ color: "#2c84ff" }}>{locale.title4}</span>
           </h1>
         </motion.div>
+
+        <ConfettiFireworks ref={confettiRef} />
+
+        {/* QR code */}
         <motion.div
           ref={textRef}
           initial={{ opacity: 0, y: 100 }}
