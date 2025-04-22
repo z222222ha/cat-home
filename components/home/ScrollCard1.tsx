@@ -67,9 +67,7 @@ export default function HorizontalFanCards({ locale }: { locale: any }) {
           {locale.title1}
           <span style={{ color: "#2c84ff" }}>{locale.title2}</span>
         </h2>
-        <p style={{ fontSize: 20, color: "#555", fontWeight: "bold" }}>
-          {locale.description}
-        </p>
+        <h3>{locale.description}</h3>
       </motion.div>
       {/* 卡片直接 absolute + motion 控制 x */}
       <motion.div

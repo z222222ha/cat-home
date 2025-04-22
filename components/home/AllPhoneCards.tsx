@@ -95,9 +95,7 @@ export default function AllPhoneCards({ locale }: { locale: any }) {
             width={200}
             height={200}
           ></Image>
-          <p style={{ fontSize: 20, color: "#555", fontWeight: "bold" }}>
-            {locale.description1}
-          </p>
+          <h3>{locale.description1}</h3>
           <RainbowButton text="扫一扫加入我们！" />
         </motion.div>
       </section>
@@ -120,6 +118,7 @@ export default function AllPhoneCards({ locale }: { locale: any }) {
           />
         </motion.div>
       </div>
+
       <section ref={containerRef} className="relative h-1/2 mt-24">
         <motion.div
           style={{
@@ -133,11 +132,9 @@ export default function AllPhoneCards({ locale }: { locale: any }) {
             {locale.title5}
             <span style={{ color: "#2c84ff" }}>{locale.title6}</span>
           </h2>
-          <p style={{ fontSize: 20, color: "#555", fontWeight: "bold" }}>
-            {locale.description2}
-          </p>
+          <h3>{locale.description2}</h3>
         </motion.div>
-        <div>
+        <div className="">
           <div className="flex gap-20">
             <Iphone15Pro
               style={{ ...cardStyle }}

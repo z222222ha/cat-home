@@ -1,6 +1,7 @@
 import AllPhoneCards from "@/components/home/AllPhoneCards";
 import Hero from "@/components/home/Hero";
 import IconCloudDemo from "@/components/home/IconCloud";
+import MapCard from "@/components/home/MapCard";
 import ScrollCard1 from "@/components/home/ScrollCard1";
 import ScrollingCats from "@/components/home/ScrollingCats";
 import { defaultLocale, getDictionary } from "@/lib/i18n";
@@ -21,6 +22,7 @@ export default async function HomeIndex({ lang }: { lang: string }) {
       <AllPhoneCards locale={dict.AllPhoneCards} />
 
       <ScrollCard1 locale={dict.ScrollCard1} />
+      <MapCard />
       {/* display technology stack, partners, project honors, etc. */}
       {/* <ScrollingLogos /> */}
 

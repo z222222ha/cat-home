@@ -85,6 +85,12 @@ const config = {
           from: { transform: "translateY(0)" },
           to: { transform: "translateY(calc(-50% - var(--gap)/2))" },
         },
+        "pulse-keyframe": {
+          to: {
+            transform: "perspective(336px) translateZ(168px)",
+            opacity: "0",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -92,6 +98,7 @@ const config = {
         "scrolling-banner": "scrolling-banner var(--duration) linear infinite",
         "scrolling-banner-vertical":
           "scrolling-banner-vertical var(--duration) linear infinite",
+        "pulse-animation": "pulse-keyframe 1.5s ease-in-out infinite",
       },
     },
   },
