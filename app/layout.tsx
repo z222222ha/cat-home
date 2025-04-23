@@ -45,7 +45,8 @@ export default async function RootLayout({
       <head />
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-background font-sans antialiased overflow-x-clip",
+          "bg-[url('/images/bg.png')] bg-fixed bg-center bg-cover",
           fontSans.variable
         )}
       >
@@ -55,7 +56,9 @@ export default async function RootLayout({
           enableSystem
         >
           <Header />
-          <main className="flex flex-col items-center py-6">{children}</main>
+          <main className="flex flex-col items-center py-6 w-full">
+            {children}
+          </main>
           <Footer />
           <Analytics />
           <TailwindIndicator />

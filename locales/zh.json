@@ -8,6 +8,31 @@
   "SocialProof": {
     "maker": "爱猫人士共同联手"
   },
+  "AllPhoneCards": {
+    "title1": "为提供一个便利、高效的",
+    "title2": "交流渠道",
+    "title3": "我们正式推出工大",
+    "title4": "猫咪小程序",
+    "title5": "功能齐全",
+    "title6": "应有尽有",
+    "description1": "高效管理 · 轻松交流 · 便捷分享",
+    "description2": "简洁 · 纯粹"
+  },
+  "ScrollCard1": {
+    "title1": "",
+    "title2": "扫一扫",
+    "description": "校园偶遇猫咪 · 扫一扫 · 立马知晓身份"
+  },
+  "MapCard": {
+    "title1": "猫咪",
+    "title2": "足迹",
+    "description": "立即 · 掌握"
+  },
+  "ArchiveCard": {
+    "title1": "你的专属",
+    "title2": "猫咪朋友圈",
+    "description": "高效 · 管理"
+  },
   "FAQ": {
     "title": "FAQs",
     "description": "这里有一些最常见的问题。"
