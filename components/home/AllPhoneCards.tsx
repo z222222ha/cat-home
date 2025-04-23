@@ -55,7 +55,7 @@ export default function AllPhoneCards({ locale }: { locale: any }) {
   }, [text2IsInView]);
 
   return (
-    <section className="mt-20 relative">
+    <section className="mt-20 relative w-full">
       {/* title */}
       <section className="flex flex-col items-center justify-center gap-4 mb-20">
         <motion.div
@@ -119,7 +119,10 @@ export default function AllPhoneCards({ locale }: { locale: any }) {
         </motion.div>
       </div>
 
-      <section ref={containerRef} className="relative h-1/2 mt-24">
+      <section
+        ref={containerRef}
+        className="relative h-1/2 mt-24 w-full flex-col"
+      >
         <motion.div
           style={{
             y: textY,
@@ -134,7 +137,7 @@ export default function AllPhoneCards({ locale }: { locale: any }) {
           </h2>
           <h3>{locale.description2}</h3>
         </motion.div>
-        <div className="">
+        <div className="w-full flex flex-col justify-center items-center">
           <div className="flex gap-20">
             <Iphone15Pro
               style={{ ...cardStyle }}

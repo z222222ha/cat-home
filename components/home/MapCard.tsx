@@ -1,17 +1,29 @@
 "use client";
 import Iphone15Pro from "@/components/magicui/iphone-15-pro";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 const markers = [
-  { x: 20, y: 90 },
-  { x: 20, y: 40 },
-  { x: 50, y: 50 },
+  { x: 25, y: 10 },
+  { x: 40, y: 70 },
+  { x: 60, y: 20 },
+  { x: 80, y: 30 },
+  { x: 50, y: 40 },
 ];
 
-export default function MapCard() {
+export default function MapCard({ locale }: { locale: any }) {
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef);
+  const mapRef = useRef(null);
+  const isInView = useInView(mapRef);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "center center"], // 动画区间
+  });
+
+  // 文字向上滑出
+  const textY = useTransform(scrollYProgress, [0, 0.4], [50, -20]);
+  const textOpacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   const Marker = ({ className }: { className?: any }) => {
     return (
@@ -25,27 +37,52 @@ export default function MapCard() {
   };
 
   return (
-    <div className="relative mt-60 w-full h-screen flex justify-center">
+    <div
+      ref={containerRef}
+      className="relative mt-40 w-full h-screen flex flex-col items-center"
+    >
+      <motion.div
+        style={{
+          y: textY,
+          opacity: textOpacity,
+          textAlign: "center",
+        }}
+        transition={{ duration: 0.4, delay: 0.5 }}
+      >
+        <h2>
+          {locale.title1}
+          <span style={{ color: "#2c84ff" }}>{locale.title2}</span>
+        </h2>
+        <h3>{locale.description}</h3>
+      </motion.div>
+
       <div className="relative w-2/3 h-4/5 rounded-2xl overflow-hidden shadow-lg">
         <motion.div
-          ref={containerRef}
+          ref={mapRef}
           initial={{ opacity: 0, scale: 0.5 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.3, delay: 0.2 }}
           className="w-full h-full bg-[url('/images/map.png')] bg-no-repeat bg-center"
-        ></motion.div>
+        >
+          {/* <Marker className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]" />
+          <Marker className="absolute top-[40%] left-[40%] translate-x-[-50%] translate-y-[-50%]" /> */}
 
-        {markers.map((marker, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 100, scale: 0.5 }}
-            animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-            transition={{ duration: 0.1, delay: 0.5 + index * 0.2 }}
-            className={`z-10 absolute top-[${marker.x}%] left-[${marker.y}%]`}
-          >
-            <Marker />
-          </motion.div>
-        ))}
+          {markers.map((marker, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 100, scale: 0.5 }}
+              animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+              transition={{ duration: 0.1, delay: 0.5 + index * 0.2 }}
+              className={`z-10 absolute`}
+              style={{
+                top: `${marker.y}%`,
+                left: `${marker.x}%`,
+              }}
+            >
+              <Marker />
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
 
       <motion.div
@@ -53,22 +90,13 @@ export default function MapCard() {
         initial={{ opacity: 0, y: 100 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.3, delay: 0.4 }}
-        className="size-full absolute top-[10%] left-[10%]"
+        className="size-full absolute top-[15%] left-[10%]"
       >
         <Iphone15Pro
           style={{ width: 433 / 1.2, height: 882 / 1.2 }}
           src="/images/map.png"
         />
       </motion.div>
-
-      {/* <motion.div
-        className="absolute"
-        initial={{ opacity: 0, x: -100 }}
-        animate={isInView ? { opacity: 1, x: 0 } : {}}
-        transition={{ duration: 0.4, delay: 0.5 }}
-      >
-        <h2>咪咪咪咪</h2>
-      </motion.div> */}
     </div>
   );
 }
