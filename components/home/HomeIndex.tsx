@@ -6,7 +6,6 @@ import IconCloudDemo from "@/components/home/IconCloud";
 import MapCard from "@/components/home/MapCard";
 import ScrollCard1 from "@/components/home/ScrollCard1";
 import ScrollingCats from "@/components/home/ScrollingCats";
-import SocialProof from "@/components/home/SocialProof";
 import { defaultLocale, getDictionary } from "@/lib/i18n";
 
 export default async function HomeIndex({ lang }: { lang: string }) {
@@ -17,7 +16,7 @@ export default async function HomeIndex({ lang }: { lang: string }) {
     <>
       {/* Hero Section */}
       <Hero locale={dict.Hero} langName={langName} />
-      <SocialProof locale={dict.SocialProof} />
+      {/* <SocialProof locale={dict.SocialProof} /> */}
       <IconCloudDemo locale={dict.SocialProof} />
       {/* <FirstCard locale={dict.Hero} /> */}
       <ScrollingCats id="Cats" />
