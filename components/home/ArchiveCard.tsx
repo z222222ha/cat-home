@@ -89,7 +89,7 @@ export default function ArchiveCard({ locale }: { locale: any }) {
       <motion.div
         initial={{ opacity: 0, y: 100 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.4, delay: 0.5 }}
+        transition={{ duration: 0.4, delay: 0.4 }}
         className="text-center"
       >
         <h2>
@@ -104,7 +104,7 @@ export default function ArchiveCard({ locale }: { locale: any }) {
           ref={containerRef}
           initial={{ opacity: 0, y: 100 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.3, delay: 0.2 }}
+          transition={{ duration: 0.3 }}
           className=""
         >
           <Iphone15Pro style={{ width: 433 / 1.2, height: 882 / 1.2 }} src="" />
@@ -113,7 +113,7 @@ export default function ArchiveCard({ locale }: { locale: any }) {
         <motion.div
           initial={{ opacity: 0, x: 100 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.3, delay: 0.4 }}
+          transition={{ duration: 0.3, delay: 0.2 }}
           className="relative flex w-3/5 flex-col items-center justify-center overflow-hidden"
         >
           <Marquee pauseOnHover className="[--duration:20s]">
@@ -138,6 +138,16 @@ export default function ArchiveCard({ locale }: { locale: any }) {
           </Marquee>
           {/* <div className="pointer-events-none absolute inset-y-0 left-0 w-1/12 bg-gradient-to-r from-background"></div> */}
           {/* <div className="pointer-events-none absolute inset-y-0 right-0 w-1/12 bg-gradient-to-l from-background"></div> */}
+        </motion.div>
+
+        <motion.div
+          ref={containerRef}
+          initial={{ opacity: 0, y: 100 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.3, delay: 0.2 }}
+          className="absolute right-[6%] bottom-[15%]"
+        >
+          <img src="/images/whitecat.png" alt="" />
         </motion.div>
       </div>
     </section>

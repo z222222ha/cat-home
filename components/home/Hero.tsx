@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const Hero = ({ locale, langName }: { locale: any; langName: string }) => {
   return (
-    <>
+    <section className="relative h-[100vh]">
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -19,7 +19,7 @@ const Hero = ({ locale, langName }: { locale: any; langName: string }) => {
           },
         }}
       >
-        <section
+        <div
           lang={langName}
           className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 md:pt-10 text-center"
         >
@@ -30,9 +30,17 @@ const Hero = ({ locale, langName }: { locale: any; langName: string }) => {
             {/* {siteConfig.description} */}
             {locale.description}
           </p>
-        </section>
+        </div>
+        {/* <img src="/images/foot.svg" alt="" />
+        <img src="/images/foot.svg" alt="" className="scale-50" />
+        <img src="/images/foot.svg" alt="" className="scale-[0.3]" />
+        <img
+          src="/images/c_1.png"
+          alt=""
+          className="absolute top-[50%] left-[50%]"
+        /> */}
       </motion.div>
-    </>
+    </section>
   );
 };
 

@@ -23,7 +23,7 @@ export default function AllPhoneCards({ locale }: { locale: any }) {
 
   const containerRef = useRef(null);
 
-  const { scrollYProgress, scrollY } = useScroll({
+  const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "center center"], // 动画区间
   });
