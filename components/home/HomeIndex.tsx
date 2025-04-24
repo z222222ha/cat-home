@@ -1,9 +1,12 @@
 import AllPhoneCards from "@/components/home/AllPhoneCards";
 import ArchiveCard from "@/components/home/ArchiveCard";
+import FinalCard from "@/components/home/FinalCard";
 import Hero from "@/components/home/Hero";
 import IconCloudDemo from "@/components/home/IconCloud";
 import MapCard from "@/components/home/MapCard";
 import ScrollCard1 from "@/components/home/ScrollCard1";
+import ScrollingCats from "@/components/home/ScrollingCats";
+import SocialProof from "@/components/home/SocialProof";
 import { defaultLocale, getDictionary } from "@/lib/i18n";
 
 export default async function HomeIndex({ lang }: { lang: string }) {
@@ -14,9 +17,10 @@ export default async function HomeIndex({ lang }: { lang: string }) {
     <>
       {/* Hero Section */}
       <Hero locale={dict.Hero} langName={langName} />
-      {/* <SocialProof locale={dict.SocialProof} /> */}
+      <SocialProof locale={dict.SocialProof} />
       <IconCloudDemo locale={dict.SocialProof} />
-      {/* <ScrollingCats id="Cats" /> */}
+      {/* <FirstCard locale={dict.Hero} /> */}
+      <ScrollingCats id="Cats" />
       {/* <Phone /> */}
 
       <AllPhoneCards locale={dict.AllPhoneCards} />
@@ -24,7 +28,7 @@ export default async function HomeIndex({ lang }: { lang: string }) {
       <ScrollCard1 locale={dict.ScrollCard1} />
       <MapCard locale={dict.MapCard} />
       <ArchiveCard locale={dict.ArchiveCard} />
-      {/* <FinalCard /> */}
+      <FinalCard locale={dict.FinalCard} />
       {/* display technology stack, partners, project honors, etc. */}
       {/* <ScrollingLogos /> */}
 
