@@ -9,7 +9,7 @@ const ScrollingCats = ({ id }: { id: string }) => {
   return (
     <section
       id={id}
-      className="w-full px-0 pt-8 md:px-6 md:pt-10 lg:px-0 lg:pt-16"
+      className="w-4/5 px-0 pt-8 md:px-6 md:pt-10 lg:px-0 lg:pt-16"
     >
       {/* <h2 className="text-center mb-10">Cats</h2> */}
 
@@ -17,9 +17,9 @@ const ScrollingCats = ({ id }: { id: string }) => {
         direction="left"
         autoFill
         pauseOnHover
-        // gradient
-        // gradientColor="rgb(248,251,253)"
-        // gradientWidth={100}
+        gradient
+        gradientColor="rgb(248,251,253)"
+        gradientWidth={100}
       >
         {CATS.map((item, index) => (
           <div className="mx-6 text-gray-500" key={index}>

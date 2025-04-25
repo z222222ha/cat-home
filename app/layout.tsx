@@ -46,7 +46,7 @@ export default async function RootLayout({
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased overflow-x-clip",
-          "bg-[url('/images/bg.png')] bg-fixed bg-center bg-cover",
+          // "bg-[url('/images/bg.png')] bg-fixed bg-center bg-cover",
           fontSans.variable
         )}
       >
