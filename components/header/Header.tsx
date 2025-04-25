@@ -11,7 +11,7 @@ import { CgClose } from "react-icons/cg";
 import { ThemedButton } from "../ThemedButton";
 
 const links = [
-  { label: "Cats", href: "#Cats" },
+  // { label: "Cats", href: "#Cats" },
   // { label: "Features", href: "#Features" },
   // { label: "Pricing", href: "#Pricing" },
   // { label: "Testimonials", href: "#Testimonials" },
@@ -30,17 +30,70 @@ const Header = () => {
         <div className="flex items-center md:gap-x-12 flex-1">
           <Link
             href="/"
-            aria-label="Landing Page Boilerplate"
-            title="Landing Page Boilerplate"
+            aria-label="武工大的猫"
+            title="武工大的猫"
             className="flex items-center space-x-1 font-bold"
           >
-            <Image
+            {/* <Image
               alt="Logo"
               src="/cat.png"
               className="w-8 h-8"
               width={32}
               height={32}
-            />
+            /> */}
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 150 153"
+              fill=""
+              xmlns="http://www.w3.org/2000/svg"
+              className="mr-2 -rotate-45 dark:fill-white fill-black"
+            >
+              <path d="M123.161 119.433C110.208 117.824 100.813 107.621 102.177 96.6446C103.54 85.6682 115.146 78.0744 128.099 79.6835C141.052 81.2925 150.448 91.4951 149.084 102.472C147.721 113.448 136.115 121.042 123.161 119.433Z">
+                <animate
+                  attributeName="opacity"
+                  values="1;0.5;1"
+                  dur="2s"
+                  repeatCount="indefinite"
+                />
+              </path>
+              <path d="M127.885 73.2737C114.978 75.2193 103.179 67.9302 101.53 56.993C99.8812 46.0557 109.008 35.612 121.915 33.6663C134.821 31.7207 146.621 39.0098 148.27 49.947C149.919 60.8843 140.792 71.328 127.885 73.2737Z">
+                <animate
+                  attributeName="opacity"
+                  values="1;0.5;1"
+                  dur="2s"
+                  begin="0.4s"
+                  repeatCount="indefinite"
+                />
+              </path>
+              <path d="M103.149 30.7562C94.9877 37.3881 83.8162 37.1582 78.1963 30.2426C72.5764 23.327 74.6363 12.3446 82.7972 5.71269C90.9581 -0.919233 102.13 -0.689281 107.75 6.2263C113.37 13.1419 111.31 24.1243 103.149 30.7562Z">
+                <animate
+                  attributeName="opacity"
+                  values="1;0.5;1"
+                  dur="2s"
+                  begin="0.8s"
+                  repeatCount="indefinite"
+                />
+              </path>
+              <path d="M92.0908 151.865C81.6912 148.723 75.4191 139.032 78.0815 130.22C80.7439 121.407 91.3328 116.81 101.732 119.952C112.132 123.094 118.404 132.785 115.742 141.597C113.079 150.41 102.49 155.007 92.0908 151.865Z">
+                <animate
+                  attributeName="opacity"
+                  values="1;0.5;1"
+                  dur="2s"
+                  begin="1.2s"
+                  repeatCount="indefinite"
+                />
+              </path>
+              <path d="M62.2944 128.113C39.5217 141.573 7.95234 122.314 1.57159 98.743C-4.80916 75.1715 13.0424 43.1416 39.1877 42.753C68.1753 44.1807 93.5298 48.5513 99.9105 72.1227C106.291 95.6942 89.5193 112.021 62.2944 128.113Z">
+                <animate
+                  attributeName="opacity"
+                  values="1;0.5;1"
+                  dur="2s"
+                  begin="1.6s"
+                  repeatCount="indefinite"
+                />
+              </path>
+            </svg>
             <span className="text-gray-950 dark:text-gray-300 hidden md:block">
               {siteConfig.name}
             </span>
