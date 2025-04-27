@@ -46,14 +46,7 @@ export default function HorizontalFanCards({ locale }: { locale: any }) {
   return (
     <section
       ref={containerRef}
-      style={{
-        position: "relative",
-        display: "flex",
-        justifyContent: "center",
-        height: "80vh",
-        width: "100%",
-        marginTop: "30vh",
-      }}
+      className="relative flex justify-center h-[80vh] w-full mt-[30vh]"
     >
       <motion.div
         style={{

@@ -106,9 +106,12 @@ export default function ArchiveCard({ locale }: { locale: any }) {
           initial={{ opacity: 0, y: 100 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.3 }}
-          className=""
         >
-          <Iphone15Pro style={{ width: 433 / 1.2, height: 882 / 1.2 }} src="" />
+          <Iphone15Pro
+            style={{ width: 433 / 1.2, height: 882 / 1.2 }}
+            src=""
+            // className="w-1/2 h-1/2 sm:w-1/2 sm:h-1/2 md:w-3/4 md:h-3/4 lg:w-5/6 lg:h-5/6"
+          />
         </motion.div>
 
         <motion.div
@@ -146,7 +149,7 @@ export default function ArchiveCard({ locale }: { locale: any }) {
           initial={{ opacity: 0, y: 100 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.3, delay: 0.2 }}
-          className="absolute right-[6%] bottom-[0%]"
+          className="absolute right-[4%] bottom-[2%]"
         >
           <Cat5 className="w-56 h-56" />
         </motion.div>
