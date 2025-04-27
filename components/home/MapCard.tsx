@@ -1,4 +1,5 @@
 "use client";
+import Cat4 from "@/components/icons/cat4";
 import Iphone15Pro from "@/components/magicui/iphone-15-pro";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
@@ -96,6 +97,15 @@ export default function MapCard({ locale }: { locale: any }) {
           style={{ width: 433 / 1.2, height: 882 / 1.2 }}
           src="/images/map.png"
         />
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.3, delay: 0.4 }}
+        className="absolute right-[10%] bottom-0"
+      >
+        <Cat4 className="w-96 h-96" />
       </motion.div>
     </div>
   );

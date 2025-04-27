@@ -1,4 +1,5 @@
 "use client";
+import Cat3 from "@/components/icons/cat3";
 import Iphone15Pro from "@/components/magicui/iphone-15-pro";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
@@ -36,23 +37,13 @@ export default function FinalCard({ locale }: { locale: any }) {
 
         <div className="">
           <motion.div
-            initial={{ opacity: 0, y: -100 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.3, delay: 0.5 }}
-            className="absolute top-[10%] left-0"
-          >
-            <div className="relative">
-              <img src="/images/cl.png" alt="" />
-            </div>
-          </motion.div>
-          <motion.div
             initial={{ opacity: 0, y: 100 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.3, delay: 0.2 }}
-            className="absolute top-1/3 left-[10%]"
+            className="absolute left-[10%]"
           >
             <div className="relative">
-              <img src="/images/f_cat.png" alt="" />
+              <Cat3 className="" />
             </div>
           </motion.div>
         </div>

@@ -1,5 +1,5 @@
 "use client";
-import Cat1 from "@/components/icons/cat1";
+import Cat2 from "@/components/icons/cat2";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
@@ -7,10 +7,14 @@ export default function FirstCard({ locale }: { locale: any }) {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef);
   return (
-    <section ref={containerRef} className="relative  flex gap-8 items-center">
-      <div className="">
-        <Cat1 className="rotate-45 fill-black dark:fill-white" />
-      </div>
+    <section ref={containerRef} className="relative flex gap-12 items-center">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5, y: 100 }}
+        animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
+        transition={{ duration: 0.3, delay: 0.4 }}
+      >
+        <Cat2 className="fill-black dark:fill-white w-96 h-96" />
+      </motion.div>
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
         animate={isInView ? { opacity: 1, scale: 1 } : {}}
