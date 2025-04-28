@@ -59,14 +59,14 @@ const ReviewCard = ({ img, name, body, sex }: any) => {
   return (
     <figure
       className={cn(
-        "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+        "relative sm:h-full h-16 sm:w-64 w-48 cursor-pointer overflow-hidden rounded-xl border sm:p-4 p-2",
         // light styles
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
         // dark styles
         "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
       )}
     >
-      <div className="flex flex-row items-center gap-2">
+      <div className="flex flex-row items-center gap-2 h-full sm:h-auto">
         <img className="rounded-full" width="32" height="32" alt="" src={img} />
         <div className="flex flex-row items-center gap-2">
           <figcaption className="text-sm font-medium dark:text-white">
@@ -86,11 +86,11 @@ export default function ArchiveCard({ locale }: { locale: any }) {
   const isInView = useInView(containerRef);
 
   return (
-    <section className="relative mt-20 w-screen h-screen flex-col items-center">
+    <section className="relative mt-20 w-screen sm:h-screen h-[60vh] flex-col items-center">
       <motion.div
         initial={{ opacity: 0, y: 100 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.4, delay: 0.4 }}
+        transition={{ duration: 0.2, delay: 0.4 }}
         className="text-center"
       >
         <h2>
@@ -106,12 +106,9 @@ export default function ArchiveCard({ locale }: { locale: any }) {
           initial={{ opacity: 0, y: 100 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.3 }}
+          className="sm:w-[calc(433px/1.2)] sm:h-[calc(882px/1.2)] w-[calc(433px/2.2) h-[calc(882px/2.2)]"
         >
-          <Iphone15Pro
-            style={{ width: 433 / 1.2, height: 882 / 1.2 }}
-            src=""
-            // className="w-1/2 h-1/2 sm:w-1/2 sm:h-1/2 md:w-3/4 md:h-3/4 lg:w-5/6 lg:h-5/6"
-          />
+          <Iphone15Pro src="" className="size-full" />
         </motion.div>
 
         <motion.div
@@ -151,7 +148,7 @@ export default function ArchiveCard({ locale }: { locale: any }) {
           transition={{ duration: 0.3, delay: 0.2 }}
           className="absolute right-[4%] bottom-[2%]"
         >
-          <Cat5 className="w-56 h-56" />
+          <Cat5 className="sm:w-56 w-36 sm:h-56 h-36" />
         </motion.div>
       </div>
     </section>

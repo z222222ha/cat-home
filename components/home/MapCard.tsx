@@ -40,7 +40,7 @@ export default function MapCard({ locale }: { locale: any }) {
   return (
     <div
       ref={containerRef}
-      className="relative mt-10 sm:mt-40 w-full h-screen flex flex-col items-center"
+      className="relative mt-20 sm:mt-40 w-full h-[80vh] sm:h-screen flex flex-col items-center"
     >
       <motion.div
         style={{
@@ -91,7 +91,7 @@ export default function MapCard({ locale }: { locale: any }) {
         initial={{ opacity: 0, y: 100 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.3, delay: 0.4 }}
-        className="absolute sm:left-[10%] left-[0%] sm:bottom-[0%] bottom-[10%]"
+        className="absolute sm:left-[10%] left-[5%] sm:bottom-[0%] bottom-[5%]"
       >
         <Iphone15Pro
           // style={{ width: 433 / 1.2, height: 882 / 1.2 }}
