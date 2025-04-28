@@ -12,8 +12,8 @@ export default function HorizontalFanCards({ locale }: { locale: any }) {
   });
 
   const cardStyle = {
-    width: 433 / 1.5,
-    height: 882 / 1.5,
+    // width: 433 / 1.5,
+    // height: 882 / 1.5,
     position: "absolute" as const,
     display: "flex",
     justifyContent: "center",
@@ -24,20 +24,12 @@ export default function HorizontalFanCards({ locale }: { locale: any }) {
   };
 
   // 左卡片：向左移动
-  const leftX = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, -(cardStyle.width + 80)]
-  );
+  const leftX = useTransform(scrollYProgress, [0, 1], ["-50%", "-170%"]);
   // 中卡片：轻微放大 + 旋转
   const centerScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
   // const centerRotate = useTransform(scrollYProgress, [0, 1], [0, 5]);
   // 右卡片：向右移动
-  const rightX = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, cardStyle.width + 80]
-  );
+  const rightX = useTransform(scrollYProgress, [0, 1], ["-50%", "70%"]);
 
   // 文字向上滑出
   const textY = useTransform(scrollYProgress, [0, 1], [50, -50]);
@@ -46,14 +38,7 @@ export default function HorizontalFanCards({ locale }: { locale: any }) {
   return (
     <section
       ref={containerRef}
-      style={{
-        position: "relative",
-        display: "flex",
-        justifyContent: "center",
-        height: "80vh",
-        width: "100%",
-        marginTop: "30vh",
-      }}
+      className="relative sm:h-[80vh] h-[60vh] w-full mt-[40vh]"
     >
       <motion.div
         style={{
@@ -71,15 +56,24 @@ export default function HorizontalFanCards({ locale }: { locale: any }) {
       </motion.div>
       {/* 卡片直接 absolute + motion 控制 x */}
       <motion.div
-        style={{ ...cardStyle, x: leftX, scale: centerScale, zIndex: 1 }}
+        style={{ x: leftX, scale: centerScale, zIndex: 1 }}
+        className="absolute left-1/2 sm:w-[calc(433px/1.5)] sm:h-[calc(882px/1.5)] w-[calc(433px/2.2) h-[calc(882px/2.2)]"
       >
         <Iphone15Pro className="size-full" src="/images/cats/001.png" />
       </motion.div>
-      <motion.div style={{ ...cardStyle, x: 0, scale: centerScale, zIndex: 3 }}>
+      <motion.div
+        style={{
+          x: "-50%",
+          scale: centerScale,
+          zIndex: 3,
+        }}
+        className="absolute left-1/2 sm:w-[calc(433px/1.5)] sm:h-[calc(882px/1.5)] w-[calc(433px/2.2) h-[calc(882px/2.2)]"
+      >
         <Iphone15Pro className="size-full" src="/images/cats/001.png" />
       </motion.div>
       <motion.div
-        style={{ ...cardStyle, x: rightX, scale: centerScale, zIndex: 2 }}
+        style={{ x: rightX, scale: centerScale, zIndex: 2 }}
+        className="absolute left-1/2 sm:w-[calc(433px/1.5)] sm:h-[calc(882px/1.5)] w-[calc(433px/2.2) h-[calc(882px/2.2)]"
       >
         <Iphone15Pro className="size-full" src="/images/cats/001.png" />
       </motion.div>

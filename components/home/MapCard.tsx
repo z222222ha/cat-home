@@ -40,7 +40,7 @@ export default function MapCard({ locale }: { locale: any }) {
   return (
     <div
       ref={containerRef}
-      className="relative mt-40 w-full h-screen flex flex-col items-center"
+      className="relative mt-20 sm:mt-40 w-full h-[80vh] sm:h-screen flex flex-col items-center"
     >
       <motion.div
         style={{
@@ -57,7 +57,7 @@ export default function MapCard({ locale }: { locale: any }) {
         <h3>{locale.description}</h3>
       </motion.div>
 
-      <div className="relative w-2/3 h-4/5 rounded-2xl overflow-hidden shadow-lg">
+      <div className="relative h-4/5 sm:w-2/3 w-4/5 rounded-2xl overflow-hidden shadow-lg">
         <motion.div
           ref={mapRef}
           initial={{ opacity: 0, scale: 0.5 }}
@@ -91,11 +91,12 @@ export default function MapCard({ locale }: { locale: any }) {
         initial={{ opacity: 0, y: 100 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.3, delay: 0.4 }}
-        className="size-full absolute top-[15%] left-[10%]"
+        className="absolute sm:left-[10%] left-[5%] sm:bottom-[0%] bottom-[5%]"
       >
         <Iphone15Pro
-          style={{ width: 433 / 1.2, height: 882 / 1.2 }}
+          // style={{ width: 433 / 1.2, height: 882 / 1.2 }}
           src="/images/map.png"
+          className="w-1/2 h-1/2 sm:w-1/2 sm:h-1/2 md:w-3/4 md:h-3/4 lg:w-5/6 lg:h-5/6"
         />
       </motion.div>
 
@@ -103,9 +104,9 @@ export default function MapCard({ locale }: { locale: any }) {
         initial={{ opacity: 0, y: 100 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.3, delay: 0.4 }}
-        className="absolute right-[10%] bottom-0"
+        className="absolute sm:right-[10%] right-[0%] sm:bottom-[0%] bottom-[10%]"
       >
-        <Cat4 className="w-96 h-96" />
+        <Cat4 className="w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-96 lg:h-96" />
       </motion.div>
     </div>
   );
