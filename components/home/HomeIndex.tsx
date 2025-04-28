@@ -18,7 +18,6 @@ export default async function HomeIndex({ lang }: { lang: string }) {
       {/* <SocialProof locale={dict.SocialProof} /> */}
       <FirstCard locale={dict.Hero} />
       {/* <IconCloudDemo locale={dict.SocialProof} /> */}
-      {/* <FirstCard locale={dict.Hero} /> */}
       <ScrollingCats id="Cats" />
       {/* <Phone /> */}
 
