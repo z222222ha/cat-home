@@ -5,7 +5,6 @@ import { Marquee } from "@/components/magicui/marquee";
 import { cn } from "@/lib/utils";
 import { motion, useInView } from "framer-motion";
 import { Mars, Venus } from "lucide-react";
-import Image from "next/image";
 import { useRef } from "react";
 
 const reviews = [
@@ -68,13 +67,7 @@ const ReviewCard = ({ img, name, body, sex }: any) => {
       )}
     >
       <div className="flex flex-row items-center gap-2 h-full sm:h-auto">
-        <Image
-          className="rounded-full"
-          width="32"
-          height="32"
-          alt=""
-          src={img}
-        />
+        <img className="rounded-full" width="32" height="32" alt="" src={img} />
         <div className="flex flex-row items-center gap-2">
           <figcaption className="text-sm font-medium dark:text-white">
             {name}
@@ -113,9 +106,12 @@ export default function ArchiveCard({ locale }: { locale: any }) {
           initial={{ opacity: 0, y: 100 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.3 }}
-          className="sm:w-[calc(433px/1.2)] sm:h-[calc(882px/1.2)] w-[calc(433px/2.2) h-[calc(882px/2.2)]"
+          className=""
         >
-          <Iphone15Pro src="" className="size-full" />
+          <Iphone15Pro
+            src=""
+            className="sm:w-[calc(433px/1.2)] sm:h-[calc(882px/1.2)] w-[calc(433px/2.2)] h-[calc(882px/2.2)]"
+          />
         </motion.div>
 
         <motion.div
