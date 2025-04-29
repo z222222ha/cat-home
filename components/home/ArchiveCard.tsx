@@ -5,6 +5,7 @@ import { Marquee } from "@/components/magicui/marquee";
 import { cn } from "@/lib/utils";
 import { motion, useInView } from "framer-motion";
 import { Mars, Venus } from "lucide-react";
+import Image from "next/image";
 import { useRef } from "react";
 
 const reviews = [
@@ -59,7 +60,7 @@ const ReviewCard = ({ img, name, body, sex }: any) => {
   return (
     <figure
       className={cn(
-        "relative sm:h-full h-16 sm:w-64 w-48 cursor-pointer overflow-hidden rounded-xl border sm:p-4 p-2",
+        "relative sm:h-full h-16 sm:w-64 w-32 cursor-pointer overflow-hidden rounded-xl border sm:p-4 p-2",
         // light styles
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
         // dark styles
@@ -67,7 +68,13 @@ const ReviewCard = ({ img, name, body, sex }: any) => {
       )}
     >
       <div className="flex flex-row items-center gap-2 h-full sm:h-auto">
-        <img className="rounded-full" width="32" height="32" alt="" src={img} />
+        <Image
+          className="rounded-full"
+          width="32"
+          height="32"
+          alt=""
+          src={img}
+        />
         <div className="flex flex-row items-center gap-2">
           <figcaption className="text-sm font-medium dark:text-white">
             {name}
@@ -86,7 +93,7 @@ export default function ArchiveCard({ locale }: { locale: any }) {
   const isInView = useInView(containerRef);
 
   return (
-    <section className="relative mt-20 w-screen sm:h-screen h-[60vh] flex-col items-center">
+    <section className="relative mt-20 w-screen sm:h-screen h-[65vh] flex-col items-center">
       <motion.div
         initial={{ opacity: 0, y: 100 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -100,7 +107,7 @@ export default function ArchiveCard({ locale }: { locale: any }) {
         <h3>{locale.description}</h3>
       </motion.div>
 
-      <div className="flex flex-row items-center justify-center gap-0">
+      <div className="w-full flex flex-row items-center justify-center px-4 sm:px-0">
         <motion.div
           ref={containerRef}
           initial={{ opacity: 0, y: 100 }}
